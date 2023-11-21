@@ -11,5 +11,9 @@ Ajouter sous la liste des langages un paragraphe
 où le mot "liste" est un lien vers l'URL suivante :
 https://fr.wikipedia.org/wiki/Liste_des_langages_de_programmation.
 */
+const x = document.querySelector('ul');
+const p = document.createElement('p');
+p.innerHTML = 'En voici une <a href="https://fr.wikipedia.org/wiki/Liste_des_langages_de_programmation">liste</a> plus complète.'
+x.insertAdjacentElement("afterend", p);
 
 

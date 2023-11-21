@@ -12,6 +12,11 @@ SOURCE : https://github.com/oc-courses/javascript-web
 
 
 
+function compterElements(test) {
+    let x = document.querySelectorAll(test);
+    return x.length;
+}
+
 console.log(compterElements("p")); // Doit afficher 4
 console.log(compterElements(".adjectif")); // Doit afficher 3
 console.log(compterElements("p .adjectif")); // Doit afficher 3

@@ -23,8 +23,9 @@ EXERCICE 1 :
 3. Vider la liste de tout son contenu et la réafficher
 */
 
-
-
+const ulElt = document.getElementById('langages');
+ulElt.innerHTML += 'C';
+console.log(ulElt);
 
 
 // 2. Le contenu textuel
@@ -37,7 +38,7 @@ Compléter le titre du document pour qu'il devienne
 "Quelques langages de programmation" et le réafficher
 */
 
-
+document.querySelector('h1').textContent = 'Quelques langages de programmation';
 
 
 // 3. Les attributs
@@ -54,8 +55,9 @@ EXERCICE 3 :
 	- via la propriété id de l'élément h1
 */
 
-
-
+const titreElm = document.querySelector('h1');
+titreElm.setAttribute('id', 'titre');
+console.log(titreElm);
 
 // 4. Les classes
 /*
@@ -73,7 +75,10 @@ EXERCICE 4 :
 - L'afficher
 */
 
-
+const titreElt = document.querySelector('h1');
+titreElt.classList.remove('debut');
+titreElt.classList.add('titre');
+console.log(titreElt);
 
 
 /*
@@ -85,9 +90,13 @@ EXERCICE 5 :
 - Retester le script
 */
 
-
-
-
+const liElt = document.querySelector('li');
+if (liElt.classList.contains('hide') === true) {
+    liElt.classList.remove('hide');
+} else {
+    liElt.classList.add('hide');
+}
+console.log(liElt);
 
 /***********************************************
  **********/
@@ -112,6 +121,14 @@ L'ajout d'un nouvel élément à une page web se décompose en trois opérations
 	- N.B. d'autres méthodes existent pour insérer le nouvel élément dans le DOM,
 		voir les méthodes alternatives ci-après
 */
+
+let x = document.createElement('h1');
+x.textContent = 'Test';
+x.setAttribute('id', 'test');
+x.setAttribute('class', 'test');
+document.body.appendChild(x);
+
+
 /*
 EXERCICE 6 : 
 Ajouter le langage "ruby" à la liste des langages :
@@ -121,14 +138,20 @@ Ajouter le langage "ruby" à la liste des langages :
 - 4. Afficher le contenu HTML de l'ul
 */
 
-
+const rubyElt = document.createElement('li');
+rubyElt.textContent = 'Pyhton';
+rubyElt.setAttribute('id', 'python');
+document.getElementById('langages').appendChild(rubyElt);
+console.log(document.getElementById('langages').innerHTML);
 
 
 // 2. Variantes pour ajouter un élément
 
 // 2.1. Création d'un noeud textuel avec la méthode createTextNode()
 
-
+x = document.createTextNode('li');
+x.textContent = 'test';
+document.getElementById('langages').appendChild(x);
 
 // 2.2. Ajout d'un noeud avant un autre noeud avec la méthode insertBefore()
 
@@ -151,10 +174,12 @@ Ajouter le langage "JavaScript" au tout début de la liste des langages
 dans une li d'id "javascript" avec la méthode insertAdjacentHTML()
 puis afficher le contenu HTML de l'ul
 */
-
-
-
-
+p = document.getElementById('langages');
+x = document.createElement('li');
+x.textContent = 'JavaScript';
+x.setAttribute('id', 'Javascript');
+x.setAttribute('class', 'Javascript');
+p.insertAdjacentElement("afterbegin", x);
 
 /***********************************************
  **********/
@@ -167,6 +192,12 @@ La méthode replaceChild()
 - remplace un nœud enfant de l'élément courant par un autre
 - prend en paramètres (dans cet ordre) le nouveau noeud et celui qui est remplacé.
 */
+
+p = document.createElement('h2');
+p.textContent = 'test2'
+x = document.querySelector('h1');
+document.body.replaceChild(p, x);
+
 /*
 EXERCICE 8 :
 - Remplacer le langage C# par un nouvel élément correspondant au langage CSS
@@ -174,7 +205,10 @@ EXERCICE 8 :
 */
 
 
-
+x = document.getElementById('langages').children[3];
+p = document.createElement('li');
+p.textContent = 'CSS';
+document.getElementById('langages').replaceChild(p,x);
 
 
 // 2. Supprimer un noeud existant
@@ -182,12 +216,18 @@ EXERCICE 8 :
 - s'applique sur le parent
 - prend en paramètre le noeud à supprimer du DOM
 */
+
+x = document.getElementById('langages').firstChild;
+document.getElementById('langages').removeChild(x);
+
 /*
 EXERCICE 9 :
 - Supprimer l'élément correspondant au langage CSS que vous venez d'insérer
 - Réaffichez la liste des langages
 */
 
+x = document.getElementById('langages').children[2];
+document.getElementById('langages').removeChild(x);
 
 
 

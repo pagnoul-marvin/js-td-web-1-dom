@@ -15,3 +15,13 @@ Il a sans doute été simplifié à outrance dans un souci
 de rendre la génération la plus simple possible en JS.
 TODO : améliorer le balisage HTML généré !!! */
 
+const urls = ["http://lemonde.fr", "http://lefigaro.fr", "http://liberation.fr"];
+for (const url of urls) {
+    const p = document.querySelector('#contenu');
+    const x = document.createElement('li');
+    p.insertAdjacentElement("beforebegin", x);
+    const a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.textContent = url;
+    x.insertAdjacentElement("beforeend", a);
+}

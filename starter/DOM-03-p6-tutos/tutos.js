@@ -14,3 +14,37 @@ Vous disposez d’un fichier HTML qui contient une nav.
 		avec le texte qui précède le lien dans l’énoncé ci-dessus)
 AIDE : Utilisez une boucle for/in pour parcourir l'objet tutos
 */
+
+const tutos = {
+    tutoriels: ["Openclassrooms : Apprenez à coder avec JavaScript :",
+        "Openclassrooms : Créez des pages web interactives avec JavaScript :",
+        "Udemy : The Complete JavaScript Course 2019 : Build Real Projects! sur UDEMY :"],
+    hrefs: ["https://openclassrooms.com/fr/courses/2984401-apprenez-a-coder-avec-javascript", "https://openclassrooms.com/fr/courses/3306901-creez-des-pages-web-interactives-avec-javascript/", "https://www.udemy.com/course/the-complete-javascript-course/"],
+    navigation() {
+        for (const tutosKey in this.tutoriels) {
+            const mesLi = document.createElement('li');
+            monTitre.insertAdjacentElement("afterend", mesLi);
+            this.hrefs.forEach(href => {
+                const mesA = document.createElement('a');
+                mesA.setAttribute('title', 'Vers le site de ...');
+                mesA.setAttribute('href', href);
+                mesLi.textContent = this.tutoriels[tutosKey];
+                mesA.textContent = href;
+                mesLi.insertAdjacentElement('beforeend', mesA);
+            })
+        }
+    }
+};
+
+const getNav = document.querySelector('nav');
+const monTitre = document.createElement('h2');
+monTitre.setAttribute('id', 'titre');
+monTitre.textContent = 'Mes tutos JavaScript';
+getNav.insertAdjacentElement("beforeend", monTitre);
+tutos.navigation();
+
+
+
+
+
+

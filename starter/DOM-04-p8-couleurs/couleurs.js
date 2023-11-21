@@ -11,3 +11,19 @@ DOM - PREPA 8 : « Couleurs » :
    (utilisez soit le nom anglais de la couleur, soit le format hexadécimal, soit le format RGB) :' ;
 2. Utilisez ces couleurs pour satisfaire les préférences de votre utilisateur
 */
+
+const couleurs = {
+    couleurTexte: prompt("Entrez la couleur de texte que vous souhaitez appliquer aux titres\n" +
+        "(utilisez soit le nom anglais de la couleur, soit le format hexadécimal, soit le format RGB"),
+    couleurFond: prompt("Entrez la couleur de fond que vous souhaitez appliquer aux titres\n" +
+        "(utilisez soit le nom anglais de la couleur, soit le format hexadécimal, soit le format RGB"),
+    applicationCouleur() {
+        const getTitres = document.querySelectorAll('h1');
+        getTitres.forEach(titre =>{
+            titre.style.color = this.couleurTexte;
+            titre.style.backgroundColor = this.couleurFond;
+        })
+    }
+}
+
+couleurs.applicationCouleur();

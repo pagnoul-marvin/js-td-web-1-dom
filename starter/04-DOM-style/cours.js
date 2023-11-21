@@ -24,7 +24,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
 /* EXERCICE 1 :
 - Clibez le premier paragraphe de la page
 - Modifiez ses propriétés de style par JavaScript :
-	* mettez la couleur du texte en #813050 ;
+	* mettez la couleur du texte en  #813050;
 	* ajoutez-lui des marges de 1em en haut et en bas ;
 	* mettez-lui une couleur de fond #D8EFE3 ;
 	* ajoutez un padding de 0.5em ;
@@ -36,7 +36,16 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
 */
 
 
-
+let x = document.querySelector('p');
+let xStyle = x.style;
+xStyle.color = "#813050";
+xStyle.marginTop = "1em";
+xStyle.marginBottom = "1em";
+xStyle.padding = "0.5em";
+xStyle.backgroundColor = "#D8EFE3";
+xStyle.fontFamily = "Baskerville";
+xStyle.fontSize = "32px";
+xStyle.textAlign = "center";
 
 // B. ACCÉDER AU STYLE D'UN ÉLÉMENT
 
@@ -52,6 +61,12 @@ Affichez la couleur du texte de chacun des trois paragraphes de la page
 
 // 1. Les limites de la propriété style
 
+/*
+let p = document.querySelectorAll('p');
+let pStyle = p.style;
+console.log(pStyle.color);
+*/
+
 
 
 // 2. La fonction getComputedStyle()
@@ -64,3 +79,9 @@ La fonction window.getComputedStyle() (https://developer.mozilla.org/fr/docs/Web
 /* EXEFCICE 3 :
 Affichez la police de caractère et la couleur du 3e paragraphe (qui a l'id "para")
 */
+
+
+x = document.getElementById('para');
+xStyle = getComputedStyle(x);
+let p = xStyle.color;
+console.log(p);
